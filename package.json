@@ -1,0 +1,22 @@
+{
+  "name": "testsite",
+  "version": "1.0.0",
+  "description": "A test website for automation tools.",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mubdiur/testsite.git"
+  },
+  "keywords": [],
+  "author": "Md. Mubdiur Rahman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mubdiur/testsite/issues"
+  },
+  "homepage": "https://github.com/mubdiur/testsite#readme",
+  "dependencies": {
+    "pug": "^3.0.2"
+  }
+}
