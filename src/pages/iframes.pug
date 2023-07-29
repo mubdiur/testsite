@@ -1,4 +1,12 @@
 head
   include ../includes/common
+  style.
+    iframe:first-of-type {
+      height: 500px;
+    }
 body
   h1 IFrames Page
+  include ../includes/gohome
+  each val in [1, 2, 3]
+    - var frameUrl = '/frames/frame' + val + '.html'
+    include ../includes/addframe
