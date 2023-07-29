@@ -2,6 +2,25 @@
 const pug = require('pug');
 const fs = require('fs');
 // build index.pug
-const buildIndex = pug.compileFile('src/index.pug');
-const index = buildIndex();
-fs.writeFileSync('public/index.html', index);
+
+const inputFiles = [
+  'src/index.pug',
+  'src/pages/iframes.pug',
+  'src/frames/frame1.1.pug',
+  'src/frames/frame1.2.1.pug',
+  'src/frames/frame1.2.pug',
+  'src/frames/frame1.pug',
+  'src/frames/frame2.1.pug',
+  'src/frames/frame2.pug',
+  'src/frames/frame3.1.pug',
+  'src/frames/frame3.pug',
+];
+
+for (const inputFile of inputFiles) {
+  const html = pug.renderFile(inputFile);
+  const outpuFile = inputFile.replace('src/', 'public/').replace('.pug', '.html');
+  try {
+    fs.mkdirSync(outpuFile.split('/').slice(0, -1).join('/'), { recursive: true })
+  } catch (error) {};
+  fs.writeFileSync(outpuFile, html);
+}
