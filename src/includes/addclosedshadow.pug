@@ -1,0 +1,5 @@
+script. 
+  shadow = document.createElement('div');
+  shadowRoot = shadow.attachShadow({mode: 'closed'});
+  shadowRoot.innerHTML = '<style>div {margin: 3px; outline: 1px dashed black}</style><div>(Closed) #{title}</div><button>Shadow Button</button>';
+  document.body.appendChild(shadow);
