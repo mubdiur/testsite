@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="en"></html><head></head><style>body {
   font-family: "Times New Roman", Times, serif;
-}</style><body><p>Frame 1.2.1</p></body><script>shadow = document.createElement('div');
+}</style><body><p>Frame 1.2.1</p><button>Frame Button</button></body><script>shadow = document.createElement('div');
 shadowRoot = shadow.attachShadow({mode: 'open'});
-shadowRoot.innerHTML = '<style>div {margin: 3px; outline: 1px dashed black}</style><div>Shadow DOM 1</div>';
+shadowRoot.innerHTML = '<style>div {margin: 3px; outline: 1px dashed black}</style><div>(Open) Shadow DOM 1</div><button>Shadow Button</button>';
 document.body.appendChild(shadow);</script><script>shadow = document.createElement('div');
 shadowRoot = shadow.attachShadow({mode: 'open'});
-shadowRoot.innerHTML = '<style>div {margin: 3px; outline: 1px dashed black}</style><div>Shadow DOM 2</div>';
+shadowRoot.innerHTML = '<style>div {margin: 3px; outline: 1px dashed black}</style><div>(Open) Shadow DOM 2</div><button>Shadow Button</button>';
 document.body.appendChild(shadow);</script>
