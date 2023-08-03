@@ -1,0 +1,65 @@
+<head><style>body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+iframe {
+  height: 250px;
+}
+button {
+  margin: 3px;
+  display: block;
+}</style></head><h1>Events Page</h1><ul> <li><a href="..">Go home</a></li></ul><h2>Click</h2><button id="Normal">Normal Button</button><button id="PreventClick">Prevent Click Button</button><button id="PreventMouseUp">Prevent MouseUp Button</button><button id="PreventMouseDown">Prevent MouseDown Button</button><button id="PreventDoubleClick">Prevent DblClick Button</button><button id="PreventAll">Prevent All Button</button><script>const mouseUpButton = document.getElementById('PreventMouseUp');
+const clickButton = document.getElementById('PreventClick');
+const mouseDownButton = document.getElementById('PreventMouseDown');
+const doubleClickButton = document.getElementById('PreventDoubleClick');
+const preventAllButton = document.getElementById('PreventAll');
+
+const events = ['click', 'mousedown', 'mouseup', 'pointerdown', 'pointerup', 'touchstart', 'dblclick'];
+
+function hideEvent(e, elem) {
+  if ((e.composedPath())[0] === elem) {
+    e.stopImmediatePropagation();
+    e.stopPropagation();
+  }
+}
+
+window.addEventListener('mouseup', function(e) {
+  hideEvent(e, mouseUpButton);
+}, true);
+window.addEventListener('click', function(e) {
+  hideEvent(e, clickButton);
+}, true);
+window.addEventListener('mousedown', function(e) {
+  hideEvent(e, mouseDownButton);
+}, true);
+
+window.addEventListener('dblclick', function(e) {
+  hideEvent(e, doubleClickButton);
+}, true);
+
+window.addEventListener('pointerup', function(e) {
+  hideEvent(e, mouseUpButton);
+}, true);
+window.addEventListener('pointerdown', function(e) {
+  hideEvent(e, mouseDownButton);
+}, true);
+
+window.addEventListener('touchstart', function(e) {
+  hideEvent(e, mouseDownButton);
+}, true);
+
+// prevent all
+for (const event of events) {
+  window.addEventListener(event, function(e) {
+    hideEvent(e, preventAllButton);
+  }, true);
+}
+
+
+// add event listener to window
+for (const event of events) {
+  window.addEventListener(event, function(e) {
+    console.log(`${event} fired`);
+  }, true);
+}
+</script>
