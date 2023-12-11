@@ -7,6 +7,7 @@ const inputFiles = [
   'src/index.pug',
   'src/pages/iframes.pug',
   'src/pages/events.pug',
+  'src/pages/scrolls.pug',
   'src/frames/frame1.1.pug',
   'src/frames/frame1.2.1.pug',
   'src/frames/frame1.2.pug',
